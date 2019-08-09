@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
 class Flat extends Component {
+  handleClick = () => {
+    this.props.updateSelectedFlat(this.props.flat);
+  }
+
   render() {
     const { name, imageUrl, price, priceCurrency } = this.props.flat;
     const style = { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2)), url('${imageUrl}')` };
     return (
-      <div className="card" style={style}>
+      <div className="card" style={style} onClick={this.handleClick} >
         <div className="card-category">
           {`${price} ${priceCurrency}`}
         </div>
